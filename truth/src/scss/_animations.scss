@@ -1,0 +1,27 @@
+/*** Animated Component Styles go here ***/
+.animated-ellipses {
+    > span {
+        opacity: 0;
+        &:first-of-type {
+            animation: ellipses 1.3s infinite;
+        }
+        &:nth-of-type(2) {
+            animation: ellipses 1.3s 0.2s infinite;
+        }
+        &:last-of-type {
+            animation: ellipses 1.3s 0.3s infinite;
+        }
+    }
+}
+
+@keyframes ellipses {
+    0% {
+        opacity: 0;
+    }
+    50% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}

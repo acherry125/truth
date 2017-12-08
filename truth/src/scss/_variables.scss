@@ -1,0 +1,68 @@
+//*** To be used with any page-wide wrapper ***//
+@mixin standard-main-container() {
+    max-width: 60rem;
+    margin: 0 auto;
+}
+
+//*** FlexBox Wrappers ***//
+
+//* Row vs Column *//
+@mixin flexRow($wrap: wrap) {
+    display: flex;
+    flex-flow: row $wrap;
+}
+
+@mixin flexCol($wrap: wrap) {
+    display: flex;
+    flex-flow: column $wrap;
+}
+
+//** Justify Styles **//
+@mixin flexRowJustifyCenter() {
+    @include flexRow();
+    justify-content: center;
+}
+
+@mixin flexColJustifyCenter() {
+    @include flexCol();    
+    justify-content: center;
+}
+
+//** Align Styles **//
+@mixin flexRowAlignCenter() {
+    @include flexRow();    
+    align-items: center;
+}
+
+@mixin flexColAlignCenter() {
+    @include flexCol(); 
+    align-items: center;       
+}
+
+//** Both Justify and Align styles **//
+@mixin flexRowBothCenter() {
+    @include flexRow();    
+    align-items: center;
+    justify-content: center;
+}
+
+@mixin flexColBothCenter() {
+    @include flexCol(); 
+    align-items: center;    
+    justify-content: center;   
+}
+
+//*** Colors and Fonts ***//
+
+//website colors
+$dark-blue: #00000A;
+$medium-blue: #001327;
+$gray-blue: #425E72;
+$light-blue: #77B3BF;
+$teal: #AEEAF4;
+
+$purple: #2E112D;
+$magenta: #540032;
+$red: #820333;
+$pink: #C9283E;
+$orange: #F0433A;
