@@ -13,7 +13,7 @@ class App extends Component {
             <BrowserRouter>
                 <div className="App">
                     <Switch>
-                        <Route path="/user/:accountid" render={props => <UserView {...props} />} />
+                        <Route path="/user/:consoleId/:username" render={props => <UserView {...props} />} />
                         <Route path="/" render={props => <SearchUsers {...props} />} />
                     </Switch>
                 </div>
@@ -21,16 +21,5 @@ class App extends Component {
         );
     }
 }
-/*
-<Router>
-    <div className="App">
-        <Switch>
-            <Route path="/the-city/menu" render={props => <MenuController user={this.state.user} {...props} />} />
-            <Route exact path="/the-city/" render={props => <StartScreen user={this.state.user} handleNameChange={this.handleNameChange} resetName={this.resetName} {...props} />} />
-            <Route path="/the-city/play" render={props => <GameController user={this.state.user} {...props} />} />
-        </Switch>
-    </div>
-</Router>
-*/
 
 export default App;

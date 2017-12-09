@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 
-import axios from 'axios';
+import { withRouter } from 'react-router-dom';
 
-export default class SearchUsers extends Component {
+class SearchUsers extends Component {
     constructor(props) {
         super(props);
         this.checkUsername = this.checkUsername.bind(this);
@@ -11,11 +11,7 @@ export default class SearchUsers extends Component {
         event.preventDefault();
         const username = event.target.username.value;
         const consoleType = event.target["console-type"].value;
-        axios({
-            method: 'get',
-            url: `/user/${consoleType}/${username}`
-        })
-
+        this.props.history.push(`/user/${consoleType}/${username}`);
     }
     render() {
         return (
@@ -23,11 +19,11 @@ export default class SearchUsers extends Component {
                 <form onSubmit={this.checkUsername}>
                     <input type="text" name="username" />
                     <div>
-                        <input type="radio" name="console-type" value="xbox" id="xbox-radio" defaultChecked="true"/>
+                        <input type="radio" name="console-type" value="1" id="xbox-radio" defaultChecked="true"/>
                         <label htmlFor="xbox-radio">Xbox</label>
-                        <input type="radio" name="console-type" value="playstation" id="playstation-radio"/>
+                        <input type="radio" name="console-type" value="2" id="playstation-radio"/>
                         <label htmlFor="playstation-radio">Playstation</label>
-                        <input type="radio" name="console-type" value="pc" id="pc-radio"/>
+                        <input type="radio" name="console-type" value="3" id="pc-radio"/>
                         <label htmlFor="pc-radio">PC</label>
                     </div>
                     <input type="submit" />
@@ -37,3 +33,4 @@ export default class SearchUsers extends Component {
     }
 }
 
+export default SearchUsers = withRouter(SearchUsers);
