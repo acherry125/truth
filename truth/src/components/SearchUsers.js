@@ -16,10 +16,14 @@ class SearchUsers extends Component {
     render() {
         return (
             <section className="search-users standard-main">
+                <div className="site-titles">
+                    <h1>Truth</h1>
+                    <h3>Destiny Companion</h3>
+                </div>
                 <form onSubmit={this.checkUsername}>
                     <h2>What is your name Guardian?</h2>
                     <input type="text" name="username" placeholder="Destiny Username"  />
-                    <div>
+                    <div className="radio-buttons">
                         <input type="radio" name="console-type" value="1" id="xbox-radio" defaultChecked="true"/>
                         <label htmlFor="xbox-radio">Xbox</label>
                         <input type="radio" name="console-type" value="2" id="playstation-radio"/>

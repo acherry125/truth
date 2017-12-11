@@ -13,9 +13,10 @@ body {
 h1, h2, h3, h4, h5, h6 {
 }
 
-a {
-    color: $teal;
+h3, h4, h5, h6 {
+    font-weight: normal;
 }
+
 
 input[type=text] {
     background: transparent;
@@ -36,18 +37,32 @@ button, input[type="submit"], input[type="button"] {
 }
 
 .submit-button {
-    background: #d28544;
+    background: $orange;
     border: 0;
-    background: #d28544;
+    background: $orange;
     color: $white;
+    padding: 0.7rem 4rem;
 }
 
 p, label, input {
     font-family: "Roboto";
 }
 
+a {
+    color: $light-blue;
+}
+
 * {
     box-sizing: border-box;
+}
+
+.site-titles {
+    h1, h2, h3, h4, h5 {
+        margin: 0 auto;
+        line-height: 1.1;
+        font-family: "EB Garamond";
+        font-weight: normal;
+    }
 }
 
 .search-users {
@@ -55,6 +70,9 @@ p, label, input {
     text-align: center;
     input[type="text"] {
         margin-bottom: 1rem;
+        font-family: "EB Garamond";
+        line-height: 1.5;
+        font-size: 2rem;
     }
     label {
         background: $white;
@@ -74,10 +92,11 @@ p, label, input {
         display: none;
     }
     input:checked + label {
-        background: rgba($white, 0.3);
+        background: mix($pink, $red, 40);
         color: $white;
+        border: 0;
     }
-    div {
+    .radio-buttons {
         display: flex;
         justify-content: center;
         align-items: center;

@@ -445,8 +445,8 @@ body {
   color: #ffffff;
 }
 
-a {
-  color: #AEEAF4;
+h3, h4, h5, h6 {
+  font-weight: normal;
 }
 
 input[type=text] {
@@ -473,14 +473,26 @@ button, input[type="submit"], input[type="button"] {
   border: 0;
   background: #d28544;
   color: #ffffff;
+  padding: 0.7rem 4rem;
 }
 
 p, label, input {
   font-family: "Roboto";
 }
 
+a {
+  color: #5da2ba;
+}
+
 * {
   box-sizing: border-box;
+}
+
+.site-titles h1, .site-titles h2, .site-titles h3, .site-titles h4, .site-titles h5 {
+  margin: 0 auto;
+  line-height: 1.1;
+  font-family: "EB Garamond";
+  font-weight: normal;
 }
 
 .search-users {
@@ -490,6 +502,9 @@ p, label, input {
 
 .search-users input[type="text"] {
   margin-bottom: 1rem;
+  font-family: "EB Garamond";
+  line-height: 1.5;
+  font-size: 2rem;
 }
 
 .search-users label {
@@ -514,11 +529,12 @@ p, label, input {
 }
 
 .search-users input:checked + label {
-  background: rgba(255, 255, 255, 0.3);
+  background: #6e1417;
   color: #ffffff;
+  border: 0;
 }
 
-.search-users div {
+.search-users .radio-buttons {
   display: flex;
   justify-content: center;
   align-items: center;

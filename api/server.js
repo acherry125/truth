@@ -50,7 +50,12 @@ function getUserCharacter(consoleId, accountId, characterIndex) {
             clientData.specialWeapon = JSON.parse(body[2]).Response.data.inventoryItem.itemName;
             clientData.heavyWeapon = JSON.parse(body[3]).Response.data.inventoryItem.itemName;
             // This currently returns everything, possibilities are each of the characters, or merged characters
-            clientData.stats = JSON.parse(body[4]).Response;
+            var statsData = JSON.parse(body[4]).Response.mergedAllCharacters.merged.allTime;
+            console.log(statsData);
+            clientData.stats = {
+                kdr: statsData.killsDeathsRatio.basic.displayValue,
+                kdar: statsData.killsDeathsAssists.basic.displayValue
+            }
             resolve(clientData);
         })
         .catch(function(err) {

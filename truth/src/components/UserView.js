@@ -42,7 +42,9 @@ export default class UserView extends Component {
             subClass = userInfo.subClass,
             primaryWeapon = userInfo.primaryWeapon,
             specialWeapon = userInfo.specialWeapon,
-            heavyWeapon = userInfo.heavyWeapon
+            heavyWeapon = userInfo.heavyWeapon,
+            kdr = userInfo.stats.kdr,
+            kdar = userInfo.stats.kdar
         this.setState({
             loaded: true,
             level: level,
@@ -50,7 +52,9 @@ export default class UserView extends Component {
             subClass: subClass,
             primaryWeapon: primaryWeapon,
             specialWeapon: specialWeapon,
-            heavyWeapon: heavyWeapon
+            heavyWeapon: heavyWeapon,
+            kdr: kdr,
+            kdar: kdar
         })
     }
     
@@ -66,7 +70,8 @@ export default class UserView extends Component {
                     <h3>Primary Weapon: {this.state.primaryWeapon}</h3>
                     <h3>Special Weapon: {this.state.specialWeapon}</h3>
                     <h3>Heavy Weapon: {this.state.heavyWeapon}</h3>
-
+                    <h3>KDR: {this.state.kdr}</h3>
+                    <h3>KDAR: {this.state.kdar}</h3>
                 </section>
             );
         } else {
