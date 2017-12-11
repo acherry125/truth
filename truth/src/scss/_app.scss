@@ -7,12 +7,10 @@ html, body {
 
 body {
     background: mix($dark-blue, $medium-blue, 70);
-    color: $teal;
+    color: $white;
 }
 
 h1, h2, h3, h4, h5, h6 {
-    font-family: "Roboto Condensed";
-    color: $pink;
 }
 
 a {
@@ -22,128 +20,72 @@ a {
 input[type=text] {
     background: transparent;
     border: 0;
-    color: $teal;
+    color: $white;
     outline: none;
-    text-align: right;
-    border-bottom: 1px solid $red;
+    text-align: center;
+    border-bottom: 1px solid $white;
     &::placeholder {
-        color: $teal;
-        opacity: 0.8;
+        color: mix($white, $black, 90);
+        opacity: 0.7;
     }
 }
 
-button {
-    border: 0;
-    background: transparent;
-    color: inherit;
+button, input[type="submit"], input[type="button"] {
     font-size: inherit;
     cursor: pointer;
+}
+
+.submit-button {
+    background: #d28544;
+    border: 0;
+    background: #d28544;
+    color: $white;
+}
+
+p, label, input {
+    font-family: "Roboto";
 }
 
 * {
     box-sizing: border-box;
 }
 
+.search-users {
+    font-size: 1.5rem;
+    text-align: center;
+    input[type="text"] {
+        margin-bottom: 1rem;
+    }
+    label {
+        background: $white;
+        color: $dark-blue;
+        padding: 5px;
+        margin-bottom: 0.5rem;
+        cursor: pointer;
+        border: 1px solid;
+        &:first-of-type {
+            border-radius: 5px 0px 0 5px;
+        }
+        &:last-of-type {
+            border-radius: 0 5px 5px 0;
+        }
+    }
+    input[type="radio"] {
+        display: none;
+    }
+    input:checked + label {
+        background: rgba($white, 0.3);
+        color: $white;
+    }
+    div {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+}
+
 .standard-main {
     @include standard-main-container();
+    padding: 1rem;
 }
 
-.conversationBox {
-    width: 500px;
-    max-width: 90%;
-    min-width: 300px;
-}
-
-.ai-text {
-    display: flex;
-    flex-flow: column wrap;
-    align-items: flex-start;
-    color: $red;
-    padding-right: 4em;
-}
-
-.user-text {
-    display: flex;
-    flex-flow: column wrap;
-    align-items: flex-end;
-    color: $teal;
-    padding-left: 4em;
-}
-
-.msg {
-    padding: 10px;
-    margin-bottom: 10px;
-    .user-text & {
-        background-color: rgba($teal, 0.25);    
-        color: lighten($teal, 5%);
-        border-radius: 10px 0 0 10px;        
-        &.animate {
-            animation: slide-in-from-right 1s;            
-        }
-    }
-    .ai-text & {
-        background-color: rgba($red, 0.25);                
-        color: lighten($red, 10%);
-        border-radius: 0 10px 10px 0;        
-        &.animate {
-            animation: slide-in-from-left 1s;
-        }
-    }
-    .responses & {
-        background-color: rgba($teal, 0.25);    
-        border-radius: 5px;
-        font-size: 1.5rem;        
-    }
-}
-
-.responses {
-    display: flex;
-    flex-flow: row wrap;
-    justify-content: space-evenly;
-    align-items: center;
-    border-top: 1px solid #AEEAF4;
-    padding-top: 1rem;
-    margin-top: 1rem;
-    a {
-        text-decoration: none;
-    }
-    .msg {
-
-    }
-}
-
-a.msg, button.msg {
-    &:hover, &:focus {
-        background-color: rgba(#77b3bf, 0.6);
-    }
-}
-
-@keyframes blink {
-    0% {
-        opacity: 0;
-    }
-    50% {
-        opacity: 1;
-    }
-    100% {
-        opacity: 0;
-    }
-}
-
-@keyframes slide-in-from-left {
-    0% {
-        transform: translateX(-500px);
-    }
-    100% {
-        transform: translateX(0);
-    }
-}
-
-@keyframes slide-in-from-right {
-    0% {
-        transform: translateX(500px);
-    }
-    100% {
-        transform: translateX(0);
-    }
-}

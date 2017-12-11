@@ -15,9 +15,10 @@ class SearchUsers extends Component {
     }
     render() {
         return (
-            <section className="search-users">
+            <section className="search-users standard-main">
                 <form onSubmit={this.checkUsername}>
-                    <input type="text" name="username" />
+                    <h2>What is your name Guardian?</h2>
+                    <input type="text" name="username" placeholder="Destiny Username"  />
                     <div>
                         <input type="radio" name="console-type" value="1" id="xbox-radio" defaultChecked="true"/>
                         <label htmlFor="xbox-radio">Xbox</label>
@@ -26,7 +27,7 @@ class SearchUsers extends Component {
                         <input type="radio" name="console-type" value="3" id="pc-radio"/>
                         <label htmlFor="pc-radio">PC</label>
                     </div>
-                    <input type="submit" />
+                    <input className="submit-button" type="submit" />
                 </form>
             </section>
         );
