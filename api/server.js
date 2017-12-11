@@ -39,7 +39,8 @@ function getUserCharacter(consoleId, accountId, characterIndex) {
             var primaryAPIPath = '/Manifest/InventoryItem/' + equipmentData[6].itemHash;
             var specialAPIPath = '/Manifest/InventoryItem/' + equipmentData[7].itemHash;
             var heavyAPIPath = '/Manifest/InventoryItem/' + equipmentData[8].itemHash;
-            var requests = [requestDestiny1(subClassAPIPath), requestDestiny1(primaryAPIPath), requestDestiny1(specialAPIPath), requestDestiny1(heavyAPIPath)];
+            var statsAPIPath = '/Stats/Account/' + consoleId + '/' + accountId;
+            var requests = [requestDestiny1(subClassAPIPath), requestDestiny1(primaryAPIPath), requestDestiny1(specialAPIPath), requestDestiny1(heavyAPIPath), requestDestiny1(statsAPIPath)];
             return Promise.all(requests);
         })
         // succesful data retrieval
@@ -48,6 +49,8 @@ function getUserCharacter(consoleId, accountId, characterIndex) {
             clientData.primaryWeapon = JSON.parse(body[1]).Response.data.inventoryItem.itemName;
             clientData.specialWeapon = JSON.parse(body[2]).Response.data.inventoryItem.itemName;
             clientData.heavyWeapon = JSON.parse(body[3]).Response.data.inventoryItem.itemName;
+            // This currently returns everything, possibilities are each of the characters, or merged characters
+            clientData.stats = JSON.parse(body[4]).Response;
             resolve(clientData);
         })
         .catch(function(err) {
