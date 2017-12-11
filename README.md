@@ -9,7 +9,7 @@ The Truth app is split into two parts:
 
 Found in api/server.js
 
-At this point, a thing wrapper on the Bungie API.
+At this point, a thin wrapper on the Bungie API.
 
 ### Endpoints:
 /api/d1/user/{:platformId}/{:username}/
