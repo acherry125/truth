@@ -26,3 +26,18 @@ Consists of two views:
 - Search View
 
 - User Detail View
+
+# Running the App
+To get the application running locally, you must install the dependencies for both servers, then start them each.
+
+These projects require Node 6+ installed.
+
+Assuming Node and NPM are in the path, you can do the following:
+
+1. cd into the /api folder, and use the command: `npm install`.
+2. if the dependencies are succesfully loaded: `npm start`. This will start the backend server at port 8081.
+3. cd back up the root folder, then down into the /truth folder, and type `npm install` once more.
+4. if the dependencies are succesfully loaded: `npm start`. This will start the React Dev server with the client code at port 8080.
+5. Visit 'http://localhost' to see the application. 
+
+Note: ports 8080 (standard localhost port), and 8081 must be free.
