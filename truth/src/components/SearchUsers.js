@@ -11,7 +11,8 @@ class SearchUsers extends Component {
         event.preventDefault();
         const username = event.target.username.value;
         const consoleType = event.target["console-type"].value;
-        this.props.history.push(`/user/${consoleType}/${username}`);
+        const destinyVersion = event.target["destiny-version"].value;
+        this.props.history.push(`/v${destinyVersion}/user/${consoleType}/${username}`);
     }
     render() {
         return (
@@ -24,12 +25,18 @@ class SearchUsers extends Component {
                     <h2>What is your name Guardian?</h2>
                     <input type="text" name="username" placeholder="Destiny Username"  />
                     <div className="radio-buttons">
-                        <input type="radio" name="console-type" value="1" id="xbox-radio" defaultChecked="true"/>
+                        <input type="radio" name="console-type" value="xb" id="xbox-radio" defaultChecked="true"/>
                         <label htmlFor="xbox-radio">Xbox</label>
-                        <input type="radio" name="console-type" value="2" id="playstation-radio"/>
+                        <input type="radio" name="console-type" value="ps" id="playstation-radio"/>
                         <label htmlFor="playstation-radio">Playstation</label>
-                        <input type="radio" name="console-type" value="3" id="pc-radio"/>
+                        <input type="radio" name="console-type" value="pc" id="pc-radio"/>
                         <label htmlFor="pc-radio">PC</label>
+                    </div>
+                    <div className="radio-buttons">
+                        <input type="radio" name="destiny-version" value="1" id="dest-1"/>
+                        <label htmlFor="dest-1">Destiny 1</label>
+                        <input type="radio" name="destiny-version" value="2" id="dest-2" defaultChecked="true"/>
+                        <label htmlFor="dest-2">Destiny 2</label>
                     </div>
                     <input className="submit-button" type="submit" />
                 </form>

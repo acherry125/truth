@@ -13,7 +13,7 @@ class App extends Component {
             <BrowserRouter>
                 <div className="App">
                     <Switch>
-                        <Route path="/user/:consoleId/:username" render={props => <UserView {...props} />} />
+                        <Route path="/:version/user/:consoleName/:username" render={props => <UserView {...props} />} />
                         <Route path="/" render={props => <SearchUsers {...props} />} />
                     </Switch>
                 </div>

@@ -20,9 +20,23 @@ export default class UserView extends Component {
         this.state = initialState;
         this.handleUserInfo = this.handleUserInfo.bind(this);
         var routeParams = this.props.match.params;
+        var consoleId = 0;
+        switch(routeParams.consoleName) {
+            case 'xb':
+                consoleId = 1;
+                break;
+            case 'ps': 
+                consoleId = 2;
+                break;
+            case 'pc':
+                consoleId = 3;
+                break;
+            default:
+                break;
+        }
         axios({
             method: 'get',
-            url: `/api/d1/user/${routeParams.consoleId}/${routeParams.username}/`
+            url: `/api/${routeParams.version}/user/${consoleId}/${routeParams.username}/`
         })
         .then((res) => {
             var userInfo = res.data;
