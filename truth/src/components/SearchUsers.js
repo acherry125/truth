@@ -5,7 +5,11 @@ import { withRouter } from 'react-router-dom';
 class SearchUsers extends Component {
     constructor(props) {
         super(props);
+        this.state = {
+            username: ''
+        }
         this.checkUsername = this.checkUsername.bind(this);
+        this.setUsername = this.setUsername.bind(this);
     }
     checkUsername(event) {
         event.preventDefault();
@@ -14,6 +18,11 @@ class SearchUsers extends Component {
         const destinyVersion = event.target["destiny-version"].value;
         this.props.setPlatform(consoleType, destinyVersion);
         this.props.history.push(`/v${destinyVersion}/user/${consoleType}/${username}`);
+    }
+    setUsername(event) {
+        this.setState({
+            username: event.target.value
+        })
     }
     render() {
         return (
@@ -24,7 +33,7 @@ class SearchUsers extends Component {
                 </div>
                 <form onSubmit={this.checkUsername}>
                     <h2>What is your name Guardian?</h2>
-                    <input type="text" name="username" placeholder="Destiny Username"/>
+                    <input type="text" name="username" placeholder="Destiny Username" onChange={this.setUsername}/>
                     <div className="radio-buttons">
                         <input type="radio" name="console-type" value="xb" id="xbox-radio" defaultChecked={this.props.system === "xb"}/>
                         <label htmlFor="xbox-radio">Xbox</label>
@@ -39,7 +48,7 @@ class SearchUsers extends Component {
                         <input type="radio" name="destiny-version" value="2" id="dest-2" defaultChecked={this.props.version === "2"} />
                         <label htmlFor="dest-2">Destiny 2</label>
                     </div>
-                    <input className="submit-button" type="submit" />
+                    <input className="submit-button" type="submit" value="Search" disabled={!this.state.username.length} />
                 </form>
             </section>
         );

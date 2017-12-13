@@ -42,6 +42,10 @@ button, input[type="submit"], input[type="button"] {
     background: $orange;
     color: $white;
     padding: 0.7rem 4rem;
+    &:disabled {
+        color:  mix($black, $white, 30);;
+        background: mix($black, $orange, 30);
+    }
 }
 
 p, label, input {
@@ -89,7 +93,7 @@ a {
         }
     }
     input[type="radio"] {
-        display: none;
+        width: 0;
     }
     input:checked + label {
         background: mix($pink, $red, 40);
