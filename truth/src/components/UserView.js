@@ -73,18 +73,27 @@ export default class UserView extends Component {
                     />
                 );
             } else {
+                var level = '',
+                    timePlayed = '',
+                    subClass = '',
+                    primaryWeapon = '',
+                    specialWeapon = '',
+                    heavyWeapon = '',
+                    kdr = '',
+                    kdar = '';
                 return (
                     <section className="user-view standard-main">
-                        <Link to="/">Back to Search</Link>
-                        <h1>{this.props.match.params.username}: User found.</h1>
-                        <h3>Power Level: {this.state.level}</h3>
-                        <h3>Time played: {this.state.minutesPlayed} minutes.</h3>
-                        <h3>Subclass: {this.state.subClass}</h3>
-                        <h3>Primary Weapon: {this.state.primaryWeapon}</h3>
-                        <h3>Special Weapon: {this.state.specialWeapon}</h3>
-                        <h3>Heavy Weapon: {this.state.heavyWeapon}</h3>
-                        <h3>KDR: {this.state.kdr}</h3>
-                        <h3>KDAR: {this.state.kdar}</h3>
+                        <UserV2View 
+                            username={this.props.match.params.username} 
+                            level={level} 
+                            timePlayed={timePlayed} 
+                            subClass={subClass}
+                            primaryWeapon={primaryWeapon}
+                            specialWeapon={specialWeapon}
+                            heavyWeapon={heavyWeapon}
+                            kdr={kdr}
+                            kdar={kdar}
+                        />
                     </section>
                 );
             }
@@ -92,7 +101,8 @@ export default class UserView extends Component {
         } else {
             return (
                 <section className="user-view">
-                    User View, not loaded
+                    <Link to="/">Back to Search</Link>
+                    User View, loading
                 </section>
             );   
         }
