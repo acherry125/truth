@@ -17,7 +17,7 @@ class App extends Component {
         const platformData = cookies.get('platform');
         // default defaults in case user has never searched before
         var defaultVersion = "2",
-            defaultSystem = 'xbl';
+            defaultSystem = 'xb';
         if (platformData) {
             defaultSystem = platformData.split('v')[0];
             defaultVersion = platformData.split('v')[1];
