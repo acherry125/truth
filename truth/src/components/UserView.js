@@ -73,8 +73,9 @@ export default class UserView extends Component {
                     />
                 );
             } else {
-                var level = '',
-                    timePlayed = '',
+                console
+                var level = userInfo.light,
+                    timePlayed = `${Math.floor(userInfo.minutesPlayedTotal / 60)}H`,
                     subClass = '',
                     primaryWeapon = '',
                     specialWeapon = '',
